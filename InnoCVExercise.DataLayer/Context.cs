@@ -1,7 +1,7 @@
-﻿using InnoCVExercise.Provider.Entities;
+﻿using InnoCVExercise.DataLayer.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace InnoCVExercise.Provider
+namespace InnoCVExercise.DataLayer
 {
     public class Context : DbContext
     {
@@ -12,7 +12,5 @@ namespace InnoCVExercise.Provider
         public Context(DbContextOptions<Context> options)
             : base(options)
         { }
-    
-
     }
 }

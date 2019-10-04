@@ -6,6 +6,5 @@ namespace InnoCVExercise.Attributes
     [AttributeUsage(AttributeTargets.Class)]
     public class SecurityAttribute : AuthorizeAttribute
     {
-    }
-    
+    }    
 }

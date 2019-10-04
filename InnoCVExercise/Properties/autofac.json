@@ -1,0 +1,25 @@
+﻿{
+	"defaultAssembly": "InnoCVExercise.Service",
+	"components": [
+		{
+			"type": "InnoCVExercise.Service",
+			"services": [
+				{
+					"type": "InnoCVExercise.Service.Interfaces.IOperation"
+				}
+			],
+			"injectProperties": true
+		},
+		{
+			"type": "Autofac.Example.Calculator.Division.Divide, Autofac.Example.Calculator.Division",
+			"services": [
+				{
+					"type": "Autofac.Example.Calculator.Api.IOperation"
+				}
+			],
+			"parameters": {
+				"places": 4
+			}
+		}
+	]
+}

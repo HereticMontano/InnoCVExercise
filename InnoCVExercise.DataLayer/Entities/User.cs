@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace InnoCVExercise.Provider.Entities
+namespace InnoCVExercise.DataLayer.Entities
 {
     public class User
     {

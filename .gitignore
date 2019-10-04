@@ -1,8 +1,5 @@
 .vs
-*.pubxml
-*.user
 
-packages
 bin
 obj
 

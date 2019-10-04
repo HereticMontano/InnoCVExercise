@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\InnoCVExercise.Provider\InnoCVExercise.Provider.csproj" />
+    <ProjectReference Include="..\InnoCVExercise.DataLayer\InnoCVExercise.DataLayer.csproj" />    
   </ItemGroup>
 
 </Project>

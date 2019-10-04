@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnoCVExercise", "InnoCVExercise\InnoCVExercise.csproj", "{A73F56F1-4011-45C1-BB89-383A548D576E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InnoCVExercise", "InnoCVExercise\InnoCVExercise.csproj", "{A73F56F1-4011-45C1-BB89-383A548D576E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnoCVExercise.Provider", "InnoCVExercise.Provider\InnoCVExercise.Provider.csproj", "{9F159863-EDB7-4599-93B9-49E829BBC935}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InnoCVExercise.Service", "InnoCVExercise.Service\InnoCVExercise.Service.csproj", "{ABEDAE4C-EE63-49CD-A766-D9A09767A45C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnoCVExercise.Service", "InnoCVExercise.Service\InnoCVExercise.Service.csproj", "{ABEDAE4C-EE63-49CD-A766-D9A09767A45C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InnoCVExercise.DataLayer", "InnoCVExercise.DataLayer\InnoCVExercise.DataLayer.csproj", "{55EDCF10-156B-4595-A8EC-F956659A9902}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{A73F56F1-4011-45C1-BB89-383A548D576E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A73F56F1-4011-45C1-BB89-383A548D576E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A73F56F1-4011-45C1-BB89-383A548D576E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9F159863-EDB7-4599-93B9-49E829BBC935}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9F159863-EDB7-4599-93B9-49E829BBC935}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9F159863-EDB7-4599-93B9-49E829BBC935}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9F159863-EDB7-4599-93B9-49E829BBC935}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ABEDAE4C-EE63-49CD-A766-D9A09767A45C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ABEDAE4C-EE63-49CD-A766-D9A09767A45C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABEDAE4C-EE63-49CD-A766-D9A09767A45C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABEDAE4C-EE63-49CD-A766-D9A09767A45C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55EDCF10-156B-4595-A8EC-F956659A9902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55EDCF10-156B-4595-A8EC-F956659A9902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55EDCF10-156B-4595-A8EC-F956659A9902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55EDCF10-156B-4595-A8EC-F956659A9902}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
