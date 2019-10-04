@@ -9,9 +9,9 @@ namespace InnoCVExercise.Service
     {
         public IUserService IUserService { get;  private set; }
 
-        public Manager(Context unityOfWork, IMapper mapper)
+        public Manager(Context unitOfWork, IMapper mapper)
         {
-            IUserService = new UserService(unityOfWork, new UserProvider(unityOfWork), mapper);
+            IUserService = new UserService(unitOfWork, new UserProvider(unitOfWork), mapper);
         }
     }
 }

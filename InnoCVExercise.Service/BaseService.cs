@@ -5,17 +5,18 @@ namespace InnoCVExercise.Service
 {
     public class BaseService
     {
-        private Context _context;
-        protected readonly IMapper _mapper;
+        private Context UnitOfWork { get; set; }
+        protected IMapper Mapper { get; private set; }
 
-        public BaseService(Context context, IMapper mapper)
+        public BaseService(Context unitOfWork, IMapper mapper)
         {
-            _mapper = mapper;
+            UnitOfWork = unitOfWork;
+            Mapper = mapper;            
         }
 
         public int SaveChanges()
         {
-            return _context.SaveChanges();
+            return UnitOfWork.SaveChanges();
         }
     }
 }

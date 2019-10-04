@@ -3,11 +3,11 @@ namespace InnoCVExercise.DataLayer.Provider
 {
     public class BaseProvider
     {
-        protected Context _unitOfWork;
+        protected Context UnitOfWork { get; }
   
         public BaseProvider(Context unitOfWork)
         {
-            _unitOfWork = unitOfWork;
+            UnitOfWork = unitOfWork;
         }      
     }
 }
