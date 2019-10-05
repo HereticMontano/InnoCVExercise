@@ -7,7 +7,7 @@ using InnoCVExercise.DomainLayer.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace InnoCVExercise.DomainLayer
+namespace InnoCVExercise.DomainLayer.Services
 {
     public class UserService : BaseService, IUserService
     {

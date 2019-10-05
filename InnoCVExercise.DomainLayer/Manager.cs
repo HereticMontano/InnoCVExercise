@@ -2,6 +2,7 @@
 using InnoCVExercise.DataLayer;
 using InnoCVExercise.DataLayer.Provider;
 using InnoCVExercise.DomainLayer.Interfaces;
+using InnoCVExercise.DomainLayer.Services;
 
 namespace InnoCVExercise.DomainLayer
 {
