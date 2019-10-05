@@ -33,6 +33,7 @@ namespace InnoCVExercise.PresentationLayer
 
             //Inyections
             services.AddSingleton(prop => { return new MapperConfiguration(cfg => { cfg.AddProfile<MappingEntityDTOModel>(); }).CreateMapper(); });
+        
             services.AddTransient(prop =>
             {
                 var optionsBuilder = new DbContextOptionsBuilder<Context>();

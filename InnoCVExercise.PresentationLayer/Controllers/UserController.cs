@@ -11,10 +11,8 @@ namespace InnoCVExercise.PresentationLayer.Controllers
     [Route("api/[controller]")]
     public class UserController : BaseController
     {
-        public UserController(Manager manager, IMapper mapper)
+        public UserController(Manager manager, IMapper mapper) : base(manager, mapper)
         {
-            Manager = manager;
-            Mapper = mapper;
         }
 
         [HttpGet]

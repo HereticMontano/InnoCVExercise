@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InnoCVExercise.DomainLayer"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InnoCVExercise.DataLayer", "InnoCVExercise.DataLayer\InnoCVExercise.DataLayer.csproj", "{55EDCF10-156B-4595-A8EC-F956659A9902}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnoCVExercise.Test", "InnoCVExercise.Test\InnoCVExercise.Test.csproj", "{AA814033-3202-4B98-AF36-57F0FB7E3956}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{55EDCF10-156B-4595-A8EC-F956659A9902}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55EDCF10-156B-4595-A8EC-F956659A9902}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55EDCF10-156B-4595-A8EC-F956659A9902}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA814033-3202-4B98-AF36-57F0FB7E3956}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA814033-3202-4B98-AF36-57F0FB7E3956}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA814033-3202-4B98-AF36-57F0FB7E3956}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA814033-3202-4B98-AF36-57F0FB7E3956}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

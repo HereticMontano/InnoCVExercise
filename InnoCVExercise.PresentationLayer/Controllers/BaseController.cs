@@ -8,5 +8,11 @@ namespace InnoCVExercise.PresentationLayer.Controllers
     {
         protected Manager Manager { get; set; }
         protected IMapper Mapper { get; set; }
+
+        public BaseController(Manager manager, IMapper mapper)
+        {
+            Manager = manager;
+            Mapper = mapper;
+        }
     }
 }

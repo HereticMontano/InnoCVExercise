@@ -1,5 +1,6 @@
 ﻿using InnoCVExercise.DataLayer.Entities;
 using InnoCVExercise.DataLayer.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
 namespace InnoCVExercise.DataLayer.Provider
@@ -23,7 +24,12 @@ namespace InnoCVExercise.DataLayer.Provider
 
         public void Update(User entity)
         {
-            UnitOfWork.Update(entity);
+            var s = "";
+            //var es = UnitOfWork.User.Find(entity.Id);
+            //es.Name = entity.Name;
+            //UnitOfWork.User.Update(es);
+            UnitOfWork.User.Update(entity);
+            //UnitOfWork.Update(entity);
         }
 
         public void Delete(int id)
