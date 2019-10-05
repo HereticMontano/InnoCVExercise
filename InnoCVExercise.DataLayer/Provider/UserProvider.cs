@@ -1,6 +1,5 @@
 ﻿using InnoCVExercise.DataLayer.Entities;
 using InnoCVExercise.DataLayer.Interfaces;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
 namespace InnoCVExercise.DataLayer.Provider
@@ -21,20 +20,23 @@ namespace InnoCVExercise.DataLayer.Provider
         {
             return UnitOfWork.User.Find(id);
         }
-
+        
         public void Update(User entity)
         {
-            var s = "";
-            //var es = UnitOfWork.User.Find(entity.Id);
-            //es.Name = entity.Name;
-            //UnitOfWork.User.Update(es);
-            UnitOfWork.User.Update(entity);
-            //UnitOfWork.Update(entity);
+            /*Esta busqueda y asignacion a mano es un FIX para un problema que me da de lado de unitest,
+            con respecto a que no me permite actualizar la entidad de forma directa porque el objeto orignal esta siendo trackeada  */
+            var tracked = UnitOfWork.User.Find(entity.Id);
+            tracked.Name = entity.Name;
+            tracked.Birthdate = entity.Birthdate;
+            UnitOfWork.User.Update(entity);            
         }
 
         public void Delete(int id)
         {
-            UnitOfWork.User.Remove(new User { Id = id });
+            /*Esta busqueda FIX para un problema que me da de lado de unitest,
+            con respecto a que no me permite actualizar la entidad de forma directa porque el objeto orignal esta siendo trackeada  */
+            var tracked = UnitOfWork.User.Find(id);
+            UnitOfWork.User.Remove(tracked);
         }
 
         public IEnumerable<User> GetAll()

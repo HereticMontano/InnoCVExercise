@@ -17,7 +17,7 @@ namespace InnoCVExercise.Test
 {
     public class Test
     {
-        private IMapper Mapp { get; set; }        
+        private IMapper Mapp { get; set; }
 
         private Manager Manager
         {
@@ -32,55 +32,39 @@ namespace InnoCVExercise.Test
         }
 
         public Test()
-        {         
-            Mapp =  new MapperConfiguration(cfg => { cfg.AddProfile<MappingEntityDTOModel>(); }).CreateMapper();
+        {
+            Mapp = new MapperConfiguration(cfg => { cfg.AddProfile<MappingEntityDTOModel>(); }).CreateMapper();
         }
 
         [Fact]
         public void CRUDUser()
-        {            
+        {
+            var userController = new UserController(Manager, Mapp);
             UserModel originalUser;
             UserModel dbUser;
-            
+
             //AddUser
-            using (var userController = new UserController(Manager, Mapp))
-            {
-                int originalCount = userController.GetUsers().Count();                
-                userController.AddUser(new UserModel { Name = $"Test", Birthdate = DateTimeHelper.RandomDay() });                
+            int originalCount = userController.GetUsers().Count();
+            userController.AddUser(new UserModel { Name = $"Test", Birthdate = DateTimeHelper.RandomDay() });
+            Assert.Equal(originalCount + 1, userController.GetUsers().Count());
 
-                Assert.Equal(originalCount + 1, userController.GetUsers().Count());
-            }
             //GetUser
-            using (var userController = new UserController(Manager, Mapp))
-            {
-                
-                originalUser = userController.GetUsers().Last();
-                dbUser = userController.GetUser(originalUser.Id);
-                Assert.True(dbUser.Equals(originalUser));
-            }
+            originalUser = userController.GetUsers().Last();
+            dbUser = userController.GetUser(originalUser.Id);
+            Assert.True(dbUser.Equals(originalUser));
+
             //UpdateUser
-            using (var userController = new UserController(Manager, Mapp))
-            {
-                originalUser.Name = "Zapatra";
-                originalUser.Birthdate = DateTimeHelper.RandomDay();
-                userController.UpdateUser(originalUser);
-                dbUser = userController.GetUser(originalUser.Id);
+            originalUser.Name = "Zapatra";
+            originalUser.Birthdate = DateTimeHelper.RandomDay();
+            userController.UpdateUser(originalUser);
+            dbUser = userController.GetUser(originalUser.Id);
+            Assert.True(dbUser.Equals(originalUser));
 
-                Assert.True(dbUser.Equals(originalUser));
-            }
             //DeleteUser
-            using (var userController = new UserController(Manager, Mapp))
-            {
-                int originalCount = userController.GetUsers().Count();
-                userController.DeleteUser(originalUser.Id);
-                dbUser = userController.GetUser(originalUser.Id);                
-                Assert.True(dbUser == null && userController.GetUsers().Count() < originalCount);
-            }
-            //     allUsers = program.GetUsers();
-
-            //Assert.NotEqual(10, allUsers)
-
-
+            originalCount = userController.GetUsers().Count();
+            userController.DeleteUser(originalUser.Id);
+            dbUser = userController.GetUser(originalUser.Id);
+            Assert.True(dbUser == null && userController.GetUsers().Count() < originalCount);
         }
     }
 }
