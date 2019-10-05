@@ -6,12 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace InnoCVExercise.PresentationLayer.Controllers.Api
+namespace InnoCVExercise.PresentationLayer.Controllers
 {
     [Route("api/[controller]")]
-    public class HomeApiController : BaseApiController
+    public class UserController : BaseController
     {
-        public HomeApiController(Manager manager, IMapper mapper)
+        public UserController(Manager manager, IMapper mapper)
         {
             Manager = manager;
             Mapper = mapper;
@@ -19,8 +19,7 @@ namespace InnoCVExercise.PresentationLayer.Controllers.Api
 
         [HttpGet]
         public IEnumerable<UserModel> GetUsers()
-        {
-            Manager.UserService.Add(new UserDTO { Name = "manuel" });
+        {            
             return Manager.UserService.GetAll().Select(x => Mapper.Map<UserModel>(x));
         }
 
@@ -38,7 +37,7 @@ namespace InnoCVExercise.PresentationLayer.Controllers.Api
         }
         
         [HttpPut]
-        public void Put([FromBody]UserModel user)
+        public void UpdateUser([FromBody]UserModel user)
         {
             if (ModelState.IsValid)
                 Manager.UserService.Update(Mapper.Map<UserDTO>(user));

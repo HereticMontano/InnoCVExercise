@@ -41,6 +41,7 @@ namespace InnoCVExercise.DomainLayer.Services
         {
             var updatedUser = Mapper.Map<User>(dto);
             UserProvider.Update(updatedUser);
+            SaveChanges();
         }
 
         public void Delete(int id)

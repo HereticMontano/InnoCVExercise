@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using InnoCVExercise.DataLayer;
 using InnoCVExercise.DataLayer.Mock;
 using InnoCVExercise.StartupService;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace InnoCVExercise.PresentationLayer
 {
@@ -23,7 +24,12 @@ namespace InnoCVExercise.PresentationLayer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();            
+            services.AddMvc();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+            });            
 
             //Inyections
             services.AddSingleton(prop => { return new MapperConfiguration(cfg => { cfg.AddProfile<MappingEntityDTOModel>(); }).CreateMapper(); });
@@ -46,6 +52,11 @@ namespace InnoCVExercise.PresentationLayer
                 //Put some data in memory            
                 DataGenerator.Initialize(app.ApplicationServices.GetRequiredService<Context>());
             }
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
 
             app.UseMvc();
         }
