@@ -8,22 +8,13 @@
     }
   },
   "profiles": {
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "launchUrl": "api/Home",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    },
-    "InnoCVExercise": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "api/Home",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "http://localhost:63009/"
-    }
+	"IIS Express": {
+		"commandName": "IISExpress",
+		"launchBrowser": true,
+		"launchUrl": "api/HomeApi",
+		"environmentVariables": {
+			"ASPNETCORE_ENVIRONMENT": "Development"
+		}
+	}
   }
 }

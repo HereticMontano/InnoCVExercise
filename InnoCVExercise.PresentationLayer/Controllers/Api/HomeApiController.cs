@@ -6,15 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace InnoCVExercise.PresentationLayer.Controllers
+namespace InnoCVExercise.PresentationLayer.Controllers.Api
 {
     [Route("api/[controller]")]
-    public class HomeController : Controller
+    public class HomeApiController : BaseApiController
     {
-        private Manager Manager { get; set; }
-        private IMapper Mapper { get; set; }
-
-        public HomeController(Manager manager, IMapper mapper)
+        public HomeApiController(Manager manager, IMapper mapper)
         {
             Manager = manager;
             Mapper = mapper;
@@ -30,10 +27,8 @@ namespace InnoCVExercise.PresentationLayer.Controllers
         [HttpGet("{id}")]
         public UserModel GetUser(int id)
         {
-            return Mapper.Map<UserModel>(Manager.UserService.GetById(id)) ;
+            return Mapper.Map<UserModel>(Manager.UserService.GetById(id));
         }
-
-
 
         [HttpPost]
         public void AddUser([FromBody]UserModel user)
@@ -43,13 +38,16 @@ namespace InnoCVExercise.PresentationLayer.Controllers
         }
         
         [HttpPut]
-        public void Put([FromBody]UserModel value)
+        public void Put([FromBody]UserModel user)
         {
+            if (ModelState.IsValid)
+                Manager.UserService.Update(Mapper.Map<UserDTO>(user));
         }
         
         [HttpDelete("{id}")]
         public void DeleteUser(int id)
         {
+            Manager.UserService.Delete(id);
         }
     }
 }
