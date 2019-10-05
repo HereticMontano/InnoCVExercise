@@ -12,7 +12,7 @@ namespace InnoCVExercise.DataLayer.Provider
         }
 
         public User Add(User entity)
-        {
+        {            
             return UnitOfWork.User.Add(entity).Entity;
         }
 

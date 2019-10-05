@@ -1,9 +1,13 @@
-﻿using Autofac;
-using AutoMapper;
+﻿using AutoMapper;
+using InnoCVExercise.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using InnoCVExercise.DataLayer;
+using InnoCVExercise.DataLayer.Mock;
+using InnoCVExercise.StartupService;
 
 namespace InnoCVExercise
 {
@@ -19,19 +23,17 @@ namespace InnoCVExercise
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();                  
-            var configMapper = new MapperConfiguration(cfg => cfg.AddMaps(new[] {
-                                                                    "InnoCVExercise",
-                                                                    "InnoCVExercise.Service"
-                                                                }));
-            services.AddSingleton(configMapper.CreateMapper());
-            
+            services.AddMvc();            
 
-            var configBuilder = new ConfigurationBuilder();
-            configBuilder.AddJsonFile("autofac.json");
-            
-            //var builder = new ContainerBuilder();
-            //builder.RegisterModule(configBuilder);
+            //Inyections
+            services.AddSingleton(prop => { return new MapperConfiguration(cfg => { cfg.AddProfile<MappingEntityDTOModel>(); }).CreateMapper(); });
+            services.AddTransient(prop =>
+            {
+                var optionsBuilder = new DbContextOptionsBuilder<Context>();
+                optionsBuilder.UseInMemoryDatabase("DataBase");
+                return new Context(optionsBuilder.Options);
+            });
+            services.AddTransient(prop => new Manager(prop.GetRequiredService<Context>(), prop.GetRequiredService<IMapper>()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,7 +41,10 @@ namespace InnoCVExercise
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage();                
+                
+                //Put some data in memory            
+                DataGenerator.Initialize(app.ApplicationServices.GetRequiredService<Context>());
             }
 
             app.UseMvc();
