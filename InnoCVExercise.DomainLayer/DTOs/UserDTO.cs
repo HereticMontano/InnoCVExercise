@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace InnoCVExercise.Service.DTOs
+namespace InnoCVExercise.DomainLayer.DTOs
 {
     public class UserDTO
     {

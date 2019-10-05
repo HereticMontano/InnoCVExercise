@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using InnoCVExercise.DataLayer;
 
-namespace InnoCVExercise.Service
+namespace InnoCVExercise.DomainLayer
 {
     public class BaseService
     {

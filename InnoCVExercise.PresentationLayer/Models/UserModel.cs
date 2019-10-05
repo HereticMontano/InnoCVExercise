@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace InnoCVExercise.Models
+namespace InnoCVExercise.PresentationLayer.Models
 {
     public class UserModel
     {        

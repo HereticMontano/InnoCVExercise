@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace InnoCVExercise
+namespace InnoCVExercise.PresentationLayer
 {
     public class Program
     {

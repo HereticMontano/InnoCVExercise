@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using InnoCVExercise.DataLayer;
 using InnoCVExercise.DataLayer.Provider;
-using InnoCVExercise.Service.Interfaces;
+using InnoCVExercise.DomainLayer.Interfaces;
 
-namespace InnoCVExercise.Service
+namespace InnoCVExercise.DomainLayer
 {
     public class Manager
     {   

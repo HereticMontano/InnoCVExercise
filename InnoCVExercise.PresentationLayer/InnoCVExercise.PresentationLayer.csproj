@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\InnoCVExercise.DataLayer\InnoCVExercise.DataLayer.csproj" />
-    <ProjectReference Include="..\InnoCVExercise.Service\InnoCVExercise.Service.csproj" />
+    <ProjectReference Include="..\InnoCVExercise.DomainLayer\InnoCVExercise.DomainLayer.csproj" />
   </ItemGroup>
 
 </Project>

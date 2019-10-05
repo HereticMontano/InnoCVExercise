@@ -2,12 +2,12 @@
 using InnoCVExercise.DataLayer;
 using InnoCVExercise.DataLayer.Entities;
 using InnoCVExercise.DataLayer.Interfaces;
-using InnoCVExercise.Service.DTOs;
-using InnoCVExercise.Service.Interfaces;
+using InnoCVExercise.DomainLayer.DTOs;
+using InnoCVExercise.DomainLayer.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace InnoCVExercise.Service
+namespace InnoCVExercise.DomainLayer
 {
     public class UserService : BaseService, IUserService
     {

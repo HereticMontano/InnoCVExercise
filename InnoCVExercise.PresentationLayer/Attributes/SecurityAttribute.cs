@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using System;
 
-namespace InnoCVExercise.Attributes
+namespace InnoCVExercise.PresentationLayer.Attributes
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class SecurityAttribute : AuthorizeAttribute

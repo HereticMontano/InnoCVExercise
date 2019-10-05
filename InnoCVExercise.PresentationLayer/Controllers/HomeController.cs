@@ -1,19 +1,19 @@
 ﻿using AutoMapper;
-using InnoCVExercise.Models;
-using InnoCVExercise.Service;
-using InnoCVExercise.Service.DTOs;
+using InnoCVExercise.DomainLayer;
+using InnoCVExercise.DomainLayer.DTOs;
+using InnoCVExercise.PresentationLayer.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace InnoCVExercise.Controllers
+namespace InnoCVExercise.PresentationLayer.Controllers
 {
     [Route("api/[controller]")]
     public class HomeController : Controller
     {
         private Manager Manager { get; set; }
-
         private IMapper Mapper { get; set; }
+
         public HomeController(Manager manager, IMapper mapper)
         {
             Manager = manager;

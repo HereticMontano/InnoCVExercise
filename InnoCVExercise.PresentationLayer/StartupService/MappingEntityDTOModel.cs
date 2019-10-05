@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using InnoCVExercise.DataLayer.Entities;
-using InnoCVExercise.Models;
-using InnoCVExercise.Service.DTOs;
+using InnoCVExercise.PresentationLayer.Models;
+using InnoCVExercise.DomainLayer.DTOs;
 
 namespace InnoCVExercise.StartupService
 {

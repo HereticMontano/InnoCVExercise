@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using InnoCVExercise.Service;
+using InnoCVExercise.DomainLayer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -9,7 +9,7 @@ using InnoCVExercise.DataLayer;
 using InnoCVExercise.DataLayer.Mock;
 using InnoCVExercise.StartupService;
 
-namespace InnoCVExercise
+namespace InnoCVExercise.PresentationLayer
 {
     public class Startup
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace InnoCVExercise.Service.Interfaces
+namespace InnoCVExercise.DomainLayer.Interfaces
 {
     public interface ICommonService<T, I>
     {

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InnoCVExercise", "InnoCVExercise\InnoCVExercise.csproj", "{A73F56F1-4011-45C1-BB89-383A548D576E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InnoCVExercise.PresentationLayer", "InnoCVExercise.PresentationLayer\InnoCVExercise.PresentationLayer.csproj", "{A73F56F1-4011-45C1-BB89-383A548D576E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InnoCVExercise.Service", "InnoCVExercise.Service\InnoCVExercise.Service.csproj", "{ABEDAE4C-EE63-49CD-A766-D9A09767A45C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InnoCVExercise.DomainLayer", "InnoCVExercise.DomainLayer\InnoCVExercise.DomainLayer.csproj", "{ABEDAE4C-EE63-49CD-A766-D9A09767A45C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InnoCVExercise.DataLayer", "InnoCVExercise.DataLayer\InnoCVExercise.DataLayer.csproj", "{55EDCF10-156B-4595-A8EC-F956659A9902}"
 EndProject
