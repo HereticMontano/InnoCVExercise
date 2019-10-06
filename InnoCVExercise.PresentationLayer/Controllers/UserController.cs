@@ -3,6 +3,7 @@ using InnoCVExercise.DomainLayer;
 using InnoCVExercise.DomainLayer.DTOs;
 using InnoCVExercise.PresentationLayer.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -16,35 +17,64 @@ namespace InnoCVExercise.PresentationLayer.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<UserModel> GetUsers()
-        {            
-            return Manager.UserService.GetAll().Select(x => Mapper.Map<UserModel>(x));
+        public ActionResult<List<UserModel>> GetUsers()
+        {
+            var models = Manager.UserService.GetAll().Select(x => Mapper.Map<UserModel>(x));
+            if (models == null)
+                return NoContent();            
+            return Ok(models.ToList());
         }
 
         [HttpGet("{id}")]
-        public UserModel GetUser(int id)
+        public ActionResult<UserModel> GetUser(int id)
         {
-            return Mapper.Map<UserModel>(Manager.UserService.GetById(id));
+            var model = Mapper.Map<UserModel>(Manager.UserService.GetById(id));
+            if (model == null)
+                return NoContent();
+            return Ok(model);
         }
 
         [HttpPost]
-        public void AddUser([FromBody]UserModel user)
+        public ActionResult AddUser([FromBody]UserModel user)
         {
-            if (ModelState.IsValid)
-                Manager.UserService.Add(Mapper.Map<UserDTO>(user));
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    Manager.UserService.Add(Mapper.Map<UserDTO>(user));
+                    return Ok();
+                }
+                return BadRequest(ModelState);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
-        
+
         [HttpPut]
-        public void UpdateUser([FromBody]UserModel user)
+        public ActionResult UpdateUser([FromBody]UserModel user)
         {
-            if (ModelState.IsValid)
-                Manager.UserService.Update(Mapper.Map<UserDTO>(user));
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    Manager.UserService.Update(Mapper.Map<UserDTO>(user));
+                    return Ok();
+                }
+                return BadRequest(ModelState);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
         
         [HttpDelete("{id}")]
-        public void DeleteUser(int id)
+        public ActionResult DeleteUser(int id)
         {
             Manager.UserService.Delete(id);
+            return Ok();
         }
     }
 }

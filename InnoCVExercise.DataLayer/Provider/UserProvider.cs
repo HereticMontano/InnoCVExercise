@@ -26,17 +26,21 @@ namespace InnoCVExercise.DataLayer.Provider
             /*Esta busqueda y asignacion a mano es un FIX para un problema que me da de lado de unitest,
             con respecto a que no me permite actualizar la entidad de forma directa porque el objeto orignal esta siendo trackeada  */
             var tracked = UnitOfWork.User.Find(entity.Id);
-            tracked.Name = entity.Name;
-            tracked.Birthdate = entity.Birthdate;
-            UnitOfWork.User.Update(entity);            
+            if (tracked != null)
+            {
+                tracked.Name = entity.Name;
+                tracked.Birthdate = entity.Birthdate;
+                UnitOfWork.User.Update(entity);
+            }
         }
 
         public void Delete(int id)
         {
-            /*Esta busqueda FIX para un problema que me da de lado de unitest,
+            /*Esta busqueda es un FIX para un problema que me da de lado de unitest,
             con respecto a que no me permite actualizar la entidad de forma directa porque el objeto orignal esta siendo trackeada  */
             var tracked = UnitOfWork.User.Find(id);
-            UnitOfWork.User.Remove(tracked);
+            if (tracked != null)
+                UnitOfWork.User.Remove(tracked);
         }
 
         public IEnumerable<User> GetAll()

@@ -9,6 +9,7 @@ using InnoCVExercise.DataLayer;
 using InnoCVExercise.DataLayer.Mock;
 using InnoCVExercise.StartupService;
 using Swashbuckle.AspNetCore.Swagger;
+using InnoCVExercise.PresentationLayer.StartupService;
 
 namespace InnoCVExercise.PresentationLayer
 {
@@ -24,12 +25,8 @@ namespace InnoCVExercise.PresentationLayer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
-
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
-            });            
+            services.AddMvc();            
+            services.AddSwaggerGen(c => { c.SwaggerGeneratorOptions = new SwaggerConfiguration(); });        
 
             //Inyections
             services.AddSingleton(prop => { return new MapperConfiguration(cfg => { cfg.AddProfile<MappingEntityDTOModel>(); }).CreateMapper(); });
