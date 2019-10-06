@@ -4,6 +4,8 @@ using System.Linq;
 
 namespace InnoCVExercise.DataLayer.Mocks
 {
+    //Esta clase debería ir en el proyecto de test (o una librería Common), la puse aquí porque tambien iba a 
+    //necesitar usarla desde la capa de presentación como de la de test.  
     public static class DataGenerator
     {
 

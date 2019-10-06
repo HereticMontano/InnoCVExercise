@@ -11,17 +11,6 @@ namespace InnoCVExercise.Test
         int _idTest = 5;
 
         [Fact]
-        public void AddUser()
-        {
-            using (var userController = new UserController(Manager, Mapp))
-            {
-                int originalCount = userController.GetUsers().GetValue().Count;
-                userController.AddUser(new UserModel { Name = $"Test", Birthdate = DateTimeHelper.RandomDay() });
-                Assert.Equal(originalCount + 1, userController.GetUsers().GetValue().Count());
-            }
-        }
-
-        [Fact]
         public void GetUser()
         {
             using (var userController = new UserController(Manager, Mapp))
@@ -30,6 +19,17 @@ namespace InnoCVExercise.Test
                 Assert.NotNull(dbUser);
             }
         }
+
+        [Fact]
+        public void AddUser()
+        {
+            using (var userController = new UserController(Manager, Mapp))
+            {
+                int originalCount = userController.GetUsers().GetValue().Count;
+                userController.AddUser(new UserModel { Name = $"Test", Birthdate = DateTimeHelper.RandomDay() });
+                Assert.Equal(originalCount + 1, userController.GetUsers().GetValue().Count());
+            }
+        }     
 
         [Fact]
         public void UpdateUser()
