@@ -1,12 +1,10 @@
 ﻿using AutoMapper;
 using InnoCVExercise.DataLayer;
-using InnoCVExercise.DataLayer.Mock;
+using InnoCVExercise.DataLayer.Mocks;
 using InnoCVExercise.DomainLayer;
-using InnoCVExercise.StartupService;
-using Microsoft.AspNetCore.Mvc;
+using InnoCVExercise.StartupServices;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace InnoCVExercise.Test
 {

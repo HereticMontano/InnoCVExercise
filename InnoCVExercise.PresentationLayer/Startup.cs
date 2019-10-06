@@ -6,9 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using InnoCVExercise.DataLayer;
-using InnoCVExercise.DataLayer.Mock;
-using InnoCVExercise.StartupService;
-using Swashbuckle.AspNetCore.Swagger;
+using InnoCVExercise.DataLayer.Mocks;
+using InnoCVExercise.StartupServices;
 using InnoCVExercise.PresentationLayer.StartupService;
 
 namespace InnoCVExercise.PresentationLayer

@@ -2,7 +2,7 @@
 using InnoCVExercise.DataLayer.Interfaces;
 using System.Collections.Generic;
 
-namespace InnoCVExercise.DataLayer.Provider
+namespace InnoCVExercise.DataLayer.Providers
 {
     public class UserProvider : BaseProvider, IUserProvider
     {

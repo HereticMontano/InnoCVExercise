@@ -1,5 +1,5 @@
 ﻿
-namespace InnoCVExercise.DataLayer.Provider
+namespace InnoCVExercise.DataLayer.Providers
 {
     public class BaseProvider
     {

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using InnoCVExercise.DataLayer;
-using InnoCVExercise.DataLayer.Provider;
+using InnoCVExercise.DataLayer.Providers;
 using InnoCVExercise.DomainLayer.Interfaces;
 using InnoCVExercise.DomainLayer.Services;
 

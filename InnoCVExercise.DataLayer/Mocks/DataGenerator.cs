@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-namespace InnoCVExercise.DataLayer.Mock
+namespace InnoCVExercise.DataLayer.Mocks
 {
     public static class DataGenerator
     {

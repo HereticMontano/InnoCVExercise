@@ -3,7 +3,7 @@ using InnoCVExercise.DataLayer.Entities;
 using InnoCVExercise.PresentationLayer.Models;
 using InnoCVExercise.DomainLayer.DTOs;
 
-namespace InnoCVExercise.StartupService
+namespace InnoCVExercise.StartupServices
 {
     public class MappingEntityDTOModel : Profile
     {
