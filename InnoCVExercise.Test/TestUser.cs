@@ -8,19 +8,10 @@ namespace InnoCVExercise.Test
 {
     public class TestUser : BaseTest
     {
+        int _idTest = 5;
 
         [Fact]
-        public void CRUDUser()
-        {
-            int idTest = 5;
-
-            AddUser();
-            GetUser(idTest);
-            UpdateUser(idTest);
-            Delete(idTest);
-        }
-
-        private void AddUser()
+        public void AddUser()
         {
             using (var userController = new UserController(Manager, Mapp))
             {
@@ -30,21 +21,22 @@ namespace InnoCVExercise.Test
             }
         }
 
-        private void GetUser(int idTest)
+        [Fact]
+        public void GetUser()
         {
             using (var userController = new UserController(Manager, Mapp))
             {
-                UserModel dbUser = userController.GetUser(idTest).GetValue();
+                UserModel dbUser = userController.GetUser(_idTest).GetValue();
                 Assert.NotNull(dbUser);
             }
         }
 
-        private void UpdateUser(int idTest)
+        [Fact]
+        public void UpdateUser()
         {
             using (var userController = new UserController(Manager, Mapp))
             {
-
-                UserModel originalUser = userController.GetUser(idTest).GetValue();
+                UserModel originalUser = userController.GetUser(_idTest).GetValue();
                 originalUser.Name = "Zapatra";
                 originalUser.Birthdate = DateTimeHelper.RandomDay();
                 userController.UpdateUser(originalUser);
@@ -53,13 +45,14 @@ namespace InnoCVExercise.Test
             }
         }
 
-        private void Delete(int idTest)
+        [Fact]
+        public void Delete()
         {
             using (var userController = new UserController(Manager, Mapp))
             {
                 int originalCount = userController.GetUsers().GetValue().Count();
-                userController.DeleteUser(idTest);
-                UserModel dbUser = userController.GetUser(idTest).GetValue();
+                userController.DeleteUser(_idTest);
+                UserModel dbUser = userController.GetUser(_idTest).GetValue();
                 Assert.True(dbUser == null && userController.GetUsers().GetValue().Count() < originalCount);
             }
         }
