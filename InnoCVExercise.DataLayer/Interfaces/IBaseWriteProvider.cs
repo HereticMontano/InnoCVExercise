@@ -7,8 +7,8 @@ namespace InnoCVExercise.DataLayer.Interfaces
     {
         Task<T> AddAsync(T entity);        
 
-        void UpdateAsync(T entity);
+        void Update(T entity);
 
-        void DeleteAsync(I id);        
+        void Delete(I id);        
     }
 }

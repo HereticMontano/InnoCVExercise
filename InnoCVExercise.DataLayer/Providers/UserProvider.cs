@@ -30,7 +30,7 @@ namespace InnoCVExercise.DataLayer.Providers
             return newEntity.Entity;                
         }
                
-        public void UpdateAsync(User entity)
+        public void Update(User entity)
         {
             /*Esta busqueda y asignacion a mano es un FIX para un problema que me da de lado de unitest,
             con respecto a que no me permite actualizar la entidad de forma directa, porque el objeto orignal esta siendo trackeada 
@@ -44,7 +44,7 @@ namespace InnoCVExercise.DataLayer.Providers
             }
         }
 
-        public void DeleteAsync(int id)
+        public void Delete(int id)
         {
             /*Esta busqueda es un FIX para un problema que me da de lado de unitest,
             con respecto a que no me permite eliminar la entidad de forma directa, porque el objeto orignal esta siendo trackeada 

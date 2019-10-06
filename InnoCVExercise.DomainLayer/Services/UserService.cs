@@ -42,13 +42,13 @@ namespace InnoCVExercise.DomainLayer.Services
         public async Task UpdateAsync(UserDTO dto)
         {
             var updatedUser = Mapper.Map<User>(dto);
-            UserProvider.UpdateAsync(updatedUser);
+            UserProvider.Update(updatedUser);
             await SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)
         {
-            UserProvider.DeleteAsync(id);
+            UserProvider.Delete(id);
             await SaveChangesAsync();
         }
     }
