@@ -1,4 +1,4 @@
-###Personal observations
+### Personal observations
 
 I use a provider pattern and use a manager to contain and construct all the services.
 The idea is keep the constructors of the controller cleanest possible of N count of services, so each Controller can have access to all service in one place.
