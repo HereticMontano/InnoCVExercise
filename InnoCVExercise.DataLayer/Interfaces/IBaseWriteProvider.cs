@@ -1,12 +1,14 @@
 ﻿
+using System.Threading.Tasks;
+
 namespace InnoCVExercise.DataLayer.Interfaces
 {
     public interface IBaseWriteProvider<T, I> : IBaseReadProvider<T, I>
     {
-        T Add(T entity);        
+        Task<T> AddAsync(T entity);        
 
-        void Update(T entity);
+        void UpdateAsync(T entity);
 
-        void Delete(I id);        
+        void DeleteAsync(I id);        
     }
 }

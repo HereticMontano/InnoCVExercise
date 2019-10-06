@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using InnoCVExercise.DataLayer;
+using System.Threading.Tasks;
 
 namespace InnoCVExercise.DomainLayer.Services
 {
@@ -14,9 +15,9 @@ namespace InnoCVExercise.DomainLayer.Services
             Mapper = mapper;            
         }
 
-        public int SaveChanges()
+        public async Task SaveChangesAsync()
         {
-            return UnitOfWork.SaveChanges();
+            await UnitOfWork.SaveChangesAsync();
         }
     }
 }

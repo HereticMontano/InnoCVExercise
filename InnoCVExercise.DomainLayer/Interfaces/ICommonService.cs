@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace InnoCVExercise.DomainLayer.Interfaces
 {
@@ -8,10 +9,10 @@ namespace InnoCVExercise.DomainLayer.Interfaces
 
         T GetById(I id);
 
-        T Add(T dto);
+        Task<T> AddAsync(T dto);
 
-        void Update(T dto);
+        Task UpdateAsync(T dto);
 
-        void Delete(I id);                
+        Task DeleteAsync(I id);                
     }
 }

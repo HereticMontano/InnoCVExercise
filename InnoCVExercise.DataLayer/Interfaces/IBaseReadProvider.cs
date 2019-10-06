@@ -1,12 +1,13 @@
 ﻿
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace InnoCVExercise.DataLayer.Interfaces
 {
     public interface IBaseReadProvider<T, I>
     {
-        IEnumerable<T> GetAll();
+        Task<IEnumerable<T>> GetAllAsync();
 
-        T GetById(I id);
+        Task<T> GetByIdAsync(I id);
     }
 }

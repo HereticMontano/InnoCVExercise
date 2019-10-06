@@ -6,6 +6,7 @@ using InnoCVExercise.DomainLayer.DTOs;
 using InnoCVExercise.DomainLayer.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace InnoCVExercise.DomainLayer.Services
 {
@@ -20,34 +21,35 @@ namespace InnoCVExercise.DomainLayer.Services
 
         public IEnumerable<UserDTO> GetAll()
         {
-            return UserProvider.GetAll().Select(x => Mapper.Map<UserDTO>(x));
+            var res = UserProvider.GetAllAsync();
+            return res.Result.Select(x => Mapper.Map<UserDTO>(x));
         }
 
         public UserDTO GetById(int id)
         {
-            return Mapper.Map<UserDTO>(UserProvider.GetById(id));
+            return Mapper.Map<UserDTO>(UserProvider.GetByIdAsync(id).Result);
         }
 
-        public UserDTO Add(UserDTO dto)
+        public async Task<UserDTO> AddAsync(UserDTO dto)
         {
             var newUser = Mapper.Map<User>(dto);
-            var entity = UserProvider.Add(newUser);
-            SaveChanges();
+            var entity = UserProvider.AddAsync(newUser);
+            await SaveChangesAsync();
 
             return Mapper.Map<UserDTO>(entity);
         }
 
-        public void Update(UserDTO dto)
+        public async Task UpdateAsync(UserDTO dto)
         {
             var updatedUser = Mapper.Map<User>(dto);
-            UserProvider.Update(updatedUser);
-            SaveChanges();
+            UserProvider.UpdateAsync(updatedUser);
+            await SaveChangesAsync();
         }
 
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            UserProvider.Delete(id);
-            SaveChanges();
-        }           
+            UserProvider.DeleteAsync(id);
+            await SaveChangesAsync();
+        }
     }
 }

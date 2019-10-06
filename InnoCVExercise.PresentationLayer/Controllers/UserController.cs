@@ -41,7 +41,7 @@ namespace InnoCVExercise.PresentationLayer.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Manager.UserService.Add(Mapper.Map<UserDTO>(user));
+                    Manager.UserService.AddAsync(Mapper.Map<UserDTO>(user));
                     return Ok();
                 }
                 return BadRequest(ModelState);
@@ -59,7 +59,7 @@ namespace InnoCVExercise.PresentationLayer.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Manager.UserService.Update(Mapper.Map<UserDTO>(user));
+                    Manager.UserService.UpdateAsync(Mapper.Map<UserDTO>(user));
                     return Ok();
                 }
                 return BadRequest(ModelState);
@@ -73,7 +73,7 @@ namespace InnoCVExercise.PresentationLayer.Controllers
         [HttpDelete("{id}")]
         public ActionResult DeleteUser(int id)
         {
-            Manager.UserService.Delete(id);
+            Manager.UserService.DeleteAsync(id);
             return Ok();
         }
     }

@@ -1,6 +1,8 @@
 ﻿using InnoCVExercise.DataLayer.Entities;
 using InnoCVExercise.DataLayer.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace InnoCVExercise.DataLayer.Providers
 {
@@ -11,17 +13,24 @@ namespace InnoCVExercise.DataLayer.Providers
         {
         }
 
-        public User Add(User entity)
-        {            
-            return UnitOfWork.User.Add(entity).Entity;
+        public async Task<IEnumerable<User>> GetAllAsync()
+        {
+            return await UnitOfWork.User.ToListAsync();
         }
 
-        public User GetById(int id)
+        public async Task<User> GetByIdAsync(int id)
         {
-            return UnitOfWork.User.Find(id);
+            var entity = await UnitOfWork.User.FindAsync(id);
+            return entity;
         }
-        
-        public void Update(User entity)
+
+        public async Task<User> AddAsync(User entity)
+        {
+            var newEntity = await UnitOfWork.AddAsync(entity);
+            return newEntity.Entity;                
+        }
+               
+        public void UpdateAsync(User entity)
         {
             /*Esta busqueda y asignacion a mano es un FIX para un problema que me da de lado de unitest,
             con respecto a que no me permite actualizar la entidad de forma directa, porque el objeto orignal esta siendo trackeada 
@@ -35,7 +44,7 @@ namespace InnoCVExercise.DataLayer.Providers
             }
         }
 
-        public void Delete(int id)
+        public void DeleteAsync(int id)
         {
             /*Esta busqueda es un FIX para un problema que me da de lado de unitest,
             con respecto a que no me permite eliminar la entidad de forma directa, porque el objeto orignal esta siendo trackeada 
@@ -44,10 +53,6 @@ namespace InnoCVExercise.DataLayer.Providers
             if (tracked != null)
                 UnitOfWork.User.Remove(tracked);
         }
-
-        public IEnumerable<User> GetAll()
-        {
-            return UnitOfWork.User;
-        }
+  
     }
 }
